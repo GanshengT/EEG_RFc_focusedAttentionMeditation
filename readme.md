@@ -39,33 +39,54 @@ below is an example:
 HU=df_generation("MOHUstoryBioRes","MOHUmeditationBioRes")
 ```
 ### graph_generation
+This function will save graphs as pdf format representing the correlation between EEG signals and tradictional biomarkers. These graphs include the tendency of *MBA* value and tradictional biomarks during the experiment, the scatter plot between EEG signals and *HRV* with respect the spatial position and wave band of the EEG signals, the regression and concerning statistic of each two signals.
+
+below is an example:
+```
+graph_generation(df matrix's name,"subject name")
+```
+### rfclassifier30MAY
+This script contains the steps to obtains PAC values' importance (MEANREDUCEDGINI):<br>
+first read *df* .csv and two csv file that store PAC values respectively of meditation and story phase
+```
+setwd(your path)
+df=read.csv(file="CACAstoryBio CACAmeditationBio _df.csv")
+PACS=read.csv(file="CACA_storyPAC.csv",header = F)
+PACM=read.csv(file="CACA_meditationPAC.csv", header = F)
+```
+in this step `FeatImpt=randomForest::importance(Model_rf)`, FeaImpt give out the importance<br>
+
+* RfAccuracy function of this script takes *subjectname* as argument and give out the confustion matrix using built random forest model
+In order to obtain a csv containing the statistics for all subjects, please follow the instruction on line 219
+
+* RfAccuracy_reExp function has the same goal as RfAccuracy, but it is designed to use the data of the subjects who did a meditation validation experiment.
+
+* RfAccuracy_reExp2 function has the same goal as RfAccuracy, but it is designed to use the data of the subjects who did a meditation validation experiment and a faked story reference experiment.
+
+### Main
+It is the main function that integrate all the functionality of stated function. you can download the main.R to see the example of one subject.
+
 
 
 ## Deployment
 
 The deployment needs real-time storation, that's to say the explotation of the recording signal from mind media device to computer should be real-time. In the computer, you can add additional function in main function to construct a *df* matrix for an interval (by changing parameters) and use built classifier to predict, then use JAVA-built (one possible option) graphical interface to give feedback 
 
-## Contributing
-Gansheng TAN
-Wei MU
+
 
 ## Contact
 If you have any question or advices of improvement please contact Gansheng TAN: aegean0045@outlook.com
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+* **Gansheng TAN** 
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+See also the list of [contributors](https://github.com/GanshengT/EEG_R_ml_corr20182019) who participated in this project.
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+* Antoine Chaillet, Hugues Mounier, Luca Greco who gave critical comments on processing EEG signals and tradictional biomarks' signal
+* Wei Mu who provided recording data and help run the test
+
 
 If you are interested in [connecting Rstudio with this repository]https://happygitwithr.com/rstudio-git-github.html
