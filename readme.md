@@ -9,7 +9,7 @@ functions are helpful to build a machine-learning classifiers, two classifier ra
 
 ### Prerequisites
 * install R-studio and appopriate [R environment] (https://www.rstudio.com/)
-* the data should be in txt format with sample rate of 256, you can refer to the example in this repository
+* the data should be in txt format of the developped protocol stated in the report with sample rate of 256, you can take a look at *MOHUstoryBioRes.txt* in storing data. The recording data should last more than 10 minutes for meditation and more than 8 minutes for story phase
 
 
 ### Installing packages
@@ -25,36 +25,32 @@ install library using `install.package("signal")` for example
 ### correlation_MOHU
 
 This is a script that help you be acquainted with R-processing of EEG signals. 
+* first use `setwd(to be completed)` to set up the path to the recording data
+* then `HU=read.table(to be completed)` enter the data's filename
+* after runing the script you will have *df* containing the extracting *MBA* (please refer to the final report) for four bands for each electrods 
+* some images will be shown in plot window to let you have a quick look of the tendency of each signal
 
+### df_generation
+This function serve as a part in main function, it will return a matrix *df* containing the value of *MBA, SC, ST, HR, Resp, HRV* (refer to the final report) for each second. You can change the inteval by modifying the Fs and n in `spec=specgram(x=HU$FP2,Fs=256,n=512)`
+* df_generation_4plus4 is used for subjects who do second experiment with 4 minutes' meditation and 4 minutes' story phase
+* df_generation_5min is used for subjects who do another meditation which last more than 5 minutes
+below is an example:
 ```
-Give an example
+HU=df_generation("MOHUstoryBioRes","MOHUmeditationBioRes")
 ```
+### graph_generation
 
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
-
-## Built With
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+The deployment needs real-time storation, that's to say the explotation of the recording signal from mind media device to computer should be real-time. In the computer, you can add additional function in main function to construct a *df* matrix for an interval (by changing parameters) and use built classifier to predict, then use JAVA-built (one possible option) graphical interface to give feedback 
 
 ## Contributing
+Gansheng TAN
+Wei MU
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+## Contact
+If you have any question or advices of improvement please contact Gansheng TAN: aegean0045@outlook.com
 
 ## Authors
 
