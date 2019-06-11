@@ -2,10 +2,9 @@
 
 This project refers to the 2018-2019 **Brain-Computer Interface based on the Relaxation state** in CentraleSupélec L2S laboratory. Here are
 some available functions for analysing EEG signals as well as skin conductance, skin temperature, heart rate and respiration rate. These 
-functions are helpful to build a machine-learning classifiers, two classifier random forest and SVM are embedded.
+functions are helpful to build the machine-learning classifiers, two classifier random forest and SVM are embedded.
 
 ## Getting Started
-
 
 ### Prerequisites
 * install R-studio and appopriate [R environment] (https://www.rstudio.com/)
