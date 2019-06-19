@@ -68,19 +68,19 @@ In order to obtain a csv containing the statistics for all subjects, please foll
 This script is used to feed random forest with MBA, ratios and PAC features and return the statistical results
 * Input: PAC meditation matrix, PAC story matrix, df matrix, those three matrix should be consistent on time
 example for file naming rule:
-'''
+```
 setwd("D:/20182019EEG_CS/df_matrix")
   df=read.csv(file=paste0(subjectName,"storyBio ",subjectName,"meditationBio _df.csv"))
   setwd("D:/20182019EEG_CS/PACmatrix")
   PACS=read.csv(file=paste0("AUTO_",subjectName,"_story.csv"),header = F)
   PACM=read.csv(file=paste0("AUTO_",subjectName,"_meditation.csv"), header = F)
-'''
+```
 
 In rf_PAC_main you have the possibility to set the subject list which includes subjects that you want to apply the random forest model.
 example:
-'''
+```
 subject_list=c("CACA","DEER","EZLE","GRCL","LENO","LOVA","MATA","MOHU","NIJO","PAMA","PRBA","TRWI","ZAMI")
-'''
+```
 The function staProc is used to further analyse the statistics.
 
 * output: the visualisation of confusion matrix, the overall confusion matrix, infomation for feature importance EEG topographie, concerning statistics for random forest model. These images or csv file will be saved at the path that you set
